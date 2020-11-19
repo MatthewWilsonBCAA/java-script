@@ -6,28 +6,58 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        p1 {
+            color: gray;
+        }
+    </style>
     <form>
+        <h1>Matt's JS Calculator</h1>
         <button onclick='getinput()'>Start</button>
       </form>
       <script>
         function getinput() {
-        do {
-            document.write("a: <input type='number' name='a' id='a'><br>");
-            document.write("b: <input type='number' name='b' id='b'><br>");
-            document.write("<button onclick='add()'>Add</button>")
-        } while (in_one != 'exit' && in_two != 'exit')
+            //do {
+                document.write("a: <input type='number' name='a' id='a'><br>");
+                document.write("b: <input type='number' name='b' id='b'><br>");
+                document.write("<button onclick='add()'>Add</button>");
+                document.write("<button onclick='sub()'>Subtract</button>");
+                document.write("<button onclick='mul()'>Multiply</button>");
+                document.write("<button onclick='div()'>Divide</button>");
+           // } while (true)
         }
-        
+        function process(x) {
+            return parseFloat(x);
+        }
         function add() {
-          var a = document.getElementById('a').value;
-          var b = document.getElementById('b').value;
-          a = parseFloat(a);
-          b = parseFloat(b);
-          var sum = a + b;
-          //alert(sum);
-          document.write("<br>")
-          document.write(a + '+' + b + '=' + sum);
-          document.write("<br>")
+            var a = process(document.getElementById('a').value);
+            var b = process(document.getElementById('b').value);
+            var sum = a + b;
+            printout(a, b, '+', sum);
+        }
+        function sub() {
+            var a = process(document.getElementById('a').value);
+            var b = process(document.getElementById('b').value);
+            var sum = a - b;
+            printout(a, b, '-', sum);
+        }
+        function mul() {
+            var a = process(document.getElementById('a').value);
+            var b = process(document.getElementById('b').value);
+            var sum = a * b;
+            printout(a, b, '*', sum);
+        }
+        function div() {
+            var a = process(document.getElementById('a').value);
+            var b = process(document.getElementById('b').value);
+            var sum = a / b;
+            printout(a, b, '/', sum);
+        }
+        function printout(a, b, op, sum) {
+            document.write("<br>")
+            text = a + op + b + '=' + sum;
+            document.write("<p1 style='color: red'>" + text + "</p1>");
+            document.write("<br>");
         }
       </script>
 </body>
