@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <button onclick='getinput()'>Start</button>
+      </form>
+      <script>
+        function getinput() {
+        do {
+            document.write("a: <input type='number' name='a' id='a'><br>");
+            document.write("b: <input type='number' name='b' id='b'><br>");
+            document.write("<button onclick='add()'>Add</button>")
+        } while (in_one != 'exit' && in_two != 'exit')
+        }
+        
+        function add() {
+          var a = document.getElementById('a').value;
+          var b = document.getElementById('b').value;
+          a = parseFloat(a);
+          b = parseFloat(b);
+          var sum = a + b;
+          //alert(sum);
+          document.write("<br>")
+          document.write(a + '+' + b + '=' + sum);
+          document.write("<br>")
+        }
+      </script>
+</body>
+</html>
